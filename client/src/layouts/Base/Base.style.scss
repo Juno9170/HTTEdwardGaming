@@ -5,3 +5,16 @@
     helvetica,
     sans-serif;
 }
+// NotFound.scss
+
+.BaseTemplate {
+  background-color: white; // Default light theme color
+
+  @media (prefers-color-scheme: dark) {
+    background-color: rgb(61, 70, 79); // Dark theme color
+  }
+
+  @media (prefers-color-scheme: light) {
+    background-color: white; // Light theme color (redundant here but included for clarity)
+  }
+}

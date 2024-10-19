@@ -16,12 +16,27 @@
       font-family: Georgia;
       font-style: italic;
       font-size: 1.8em;
+      @media (prefers-color-scheme: dark) {
+        color: white; // Dark theme color
+      }
+    
+      @media (prefers-color-scheme: light) {
+        color: black; // Light theme color (redundant here but included for clarity)
+      }
     }
 
     &__footer {
       font-weight: bold;
       font-size: 80%;
       text-align: left;
+      
+      @media (prefers-color-scheme: dark) {
+        background-color: rgb(65, 78, 90); // Dark theme color
+      }
+    
+      @media (prefers-color-scheme: light) {
+        background-color: white; // Light theme color (redundant here but included for clarity)
+      }
 
       &__release {
         text-transform: uppercase;

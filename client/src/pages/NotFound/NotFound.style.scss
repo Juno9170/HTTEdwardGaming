@@ -1,0 +1,24 @@
+.text-404 {
+    color: white; // Default light theme color
+  
+    @media (prefers-color-scheme: dark) {
+      color: rgb(255, 255, 255); // Dark theme color
+    }
+  
+    @media (prefers-color-scheme: light) {
+      color: black; // Light theme color (redundant here but included for clarity)
+    }
+  }
+
+.home-text{
+        color: white; // Default light theme color
+      
+        @media (prefers-color-scheme: dark) {
+          color: rgb(255, 220, 220); // Dark theme color
+        }
+      
+        @media (prefers-color-scheme: light) {
+          color: rgb(122, 61, 61); // Light theme color (redundant here but included for clarity)
+        
+      }
+}

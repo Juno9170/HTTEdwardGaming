@@ -1,12 +1,12 @@
 import { Central as Layout } from "@/layouts";
-import "./NotFound.style.scss";
+import './NotFound.style.scss';
 import { Link } from "react-router-dom";
 function NotFound() {
   return (
     <Layout title={"Page Not Found"}>
-      <h1>404! Are you sure thats what you're looking for?</h1>
+      <h1 className="text-404">404! Are you sure thats what you're looking for?</h1>
       <Link to={"/"}>
-        <h2 className=" underline text-blue-300">Click me to go home!</h2>
+        <h2 className="home-text">Click me to go home!</h2>
       </Link>
     </Layout>
   );

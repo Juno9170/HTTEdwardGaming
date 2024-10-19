@@ -5,6 +5,7 @@ import { useEffect } from "react";
 
 interface Props {
   children: React.ReactNode;
+
 }
 
 function Base({ children }: Props) {
@@ -24,7 +25,7 @@ function Base({ children }: Props) {
     }
   }, [loggedIn, navigate]);
 
-  return <div>{children}</div>;
+  return <div className={`BaseTemplate`}>{children}</div>;
 }
 
 export default Base;
