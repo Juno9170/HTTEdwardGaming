@@ -1,5 +1,7 @@
 import { ScheduledEvent } from "@/infrastructure/ServiceAPI";
 import "./ResultsSection.style.scss";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
 
 interface ResultsSectionProps {
   scheduledEvents: ScheduledEvent[];
@@ -37,13 +39,59 @@ function ResultsSection({ scheduledEvents, addEvent }: ResultsSectionProps) {
         {scheduledEvents.map((event, index) => (
           <div
             key={index}
-            className={`ResultsSection__result ${
-              index % 2 === 0
-                ? "ResultsSection__result--gray"
-                : "ResultsSection__result--light-gray"
-            }`}
+            className={`ResultsSection__result ResultsSection__result--gray`}
           >
-            <div className="ResultsSection__result__topbar">
+            <Card className=" w-2/3 mx-auto">
+              <CardHeader>
+                <div className="flex justify-between items-center">
+                  <div className="flex flex-row gap-8">
+                  
+                  <Badge onClick={()=>addEvent(event)} variant="outline" className="text-sm font-semibold cursor-pointer hover:bg-secondary active:bg-black active:text-white">
+                    Add Course
+                  </Badge>
+                  <a href={event.url} target="_blank" rel="noopener noreferrer">
+                  <Badge variant="outline" className="text-sm font-semibold text-gray-500">
+                    Learn More
+                  </Badge>
+                  </a>
+                  </div>
+                  
+                  <Badge variant="secondary" className="text-sm">
+                  {event.credit} Credits
+                  </Badge>
+                </div>
+                <CardTitle className="text-2xl mt-2">{event.course.shortTitle}</CardTitle>
+                <CardDescription>{event.course.subjectCode} {event.course.courseCode} - Section {event.section}</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-2">
+                <div className="flex justify-between items-center">
+                  <span className="font-medium">Schedule:</span>
+                  <span>{event.type}</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="font-medium">Instructor:</span>
+                  <span>{event.instructor}</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="font-medium">Days:</span>
+                  <span>{event.days}</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="font-medium">Time:</span>
+                  <span>{event.startTime} - {event.endTime}</span>
+                </div>
+              </CardContent>
+              <CardFooter className="flex flex-col items-start">
+                <h4 className="font-semibold mb-2">Course Description:</h4>
+                <p className="text-sm text-muted-foreground">
+                  {event.description}
+                </p>
+              </CardFooter>
+            </Card>
+
+            {/*
+              <>
+              <div className="ResultsSection__result__topbar">
               <div className="ResultsSection__add">
                 <button onClick={() => addEvent(event)}>Add</button>
               </div>
@@ -78,6 +126,9 @@ function ResultsSection({ scheduledEvents, addEvent }: ResultsSectionProps) {
                 <b>Section Information:</b> {event.description}
               </div>
             </div>
+            </>
+            */}
+            
           </div>
         ))}
       </div>
