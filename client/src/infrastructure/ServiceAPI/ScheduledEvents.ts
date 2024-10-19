@@ -23,10 +23,11 @@ export interface ScheduledEvent {
   };
 }
 
-export const fetchScheduledEvents = async (): Promise<ScheduledEvent[]> => {
+export const fetchScheduledEvents = async (subjectCode: string): Promise<ScheduledEvent[]> => {
   const response = await fetch(
-    `${import.meta.env.VITE_API_ROOT}/api/v1/scheduledEvents`,
+    `${import.meta.env.VITE_API_ROOT}/api/v1/scheduledEvents?subjectCode=${encodeURIComponent(subjectCode)}`,
   );
+
   const json = await response.json();
 
   if (json.error) {
@@ -36,6 +37,7 @@ export const fetchScheduledEvents = async (): Promise<ScheduledEvent[]> => {
   const data = formatScheduledEvents(json.data);
   return data;
 };
+
 
 const formatScheduledEvents = (events: any[]): ScheduledEvent[] => {
   return events.map((event) => {

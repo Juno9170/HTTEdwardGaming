@@ -17,11 +17,11 @@ function BuildTimetable() {
   const [scheduledEvents, setScheduledEvents] = useState<ScheduledEvent[]>([]);
   const [selectedEvents, setSelectedEvents] = useState<ScheduledEvent[]>([]);
   const navigate = useNavigate();
-
-  const fetchScheduledEvents = async () => {
-    const result = await ServiceAPI.fetchScheduledEvents();
+  const [searchCode, setSearchCode] = useState("");
+  const fetchScheduledEvents = async (subjectCode: string) => {
+    const result = await ServiceAPI.fetchScheduledEvents(subjectCode); // Pass subjectCode
     setScheduledEvents(result);
-  };
+  };  
 
   const createTimetable = async () => {
     const result = await ServiceAPI.createTimetable(
@@ -45,7 +45,11 @@ function BuildTimetable() {
     <Layout title={"My Course Worksheet"}>
       <div className="BuildTimetable">
         <Section title="Search">
-          <SearchSection onSearch={fetchScheduledEvents} />
+          <div>Enter Course Program Code:</div>
+          <input onChange={(e) => setSearchCode(e.target.value)} className="bg-secondary" placeholder="Enter here">
+
+          </input>
+          <SearchSection onSearch={() => fetchScheduledEvents(searchCode)} />
         </Section>
         {scheduledEvents.length > 0 && (
           <Section title="Results">

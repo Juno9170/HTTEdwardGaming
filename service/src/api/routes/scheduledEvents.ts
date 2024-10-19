@@ -5,7 +5,8 @@ import { ScheduledEventService } from "../../services";
 const router = express.Router();
 
 const index = async (request: Request, response: Response) => {
-  const result = await ScheduledEventService.getFirst(10);
+  const subjectCode = request.query.subjectCode as string || "MATH"; // Use subjectCode from query or default to "MATH"
+  const result = await ScheduledEventService.getFirst(10, subjectCode);
 
   return success(response, {
     data: result.val,

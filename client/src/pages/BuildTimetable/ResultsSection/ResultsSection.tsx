@@ -88,46 +88,6 @@ function ResultsSection({ scheduledEvents, addEvent }: ResultsSectionProps) {
                 </p>
               </CardFooter>
             </Card>
-
-            {/*
-              <>
-              <div className="ResultsSection__result__topbar">
-              <div className="ResultsSection__add">
-                <button onClick={() => addEvent(event)}>Add</button>
-              </div>
-              <div className="ResultsSection__crn">
-                <a href={event.url} target="_blank" rel="noopener noreferrer">
-                  {event.crn}
-                </a>
-              </div>
-              <div className="ResultsSection__subject">
-                <a href={event.url} target="_blank" rel="noopener noreferrer">
-                  {event.course.subjectCode} {event.course.courseCode}
-                </a>
-              </div>
-              <div className="ResultsSection__section">{event.section}</div>
-              <div className="ResultsSection__title">
-                <a href={event.url} target="_blank" rel="noopener noreferrer">
-                  {event.course.shortTitle}
-                </a>
-              </div>
-              <div className="ResultsSection__credit">{event.credit}</div>
-              <div className="ResultsSection__type">{event.type}</div>
-              <div className="ResultsSection__instructor">
-                {event.instructor}
-              </div>
-            </div>
-            <div className="ResultsSection__result__content">
-              <div>
-                <b>Days:</b> {event.days}, <b>Time:</b> {event.startTime} -{" "}
-                {event.endTime}
-              </div>
-              <div>
-                <b>Section Information:</b> {event.description}
-              </div>
-            </div>
-            </>
-            */}
             
           </div>
         ))}
