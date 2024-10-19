@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useAccountContext } from "../../context";
 import { Base as Layout } from "@/layouts";
 import "./Login.style.scss";
+import { Button } from "@/components/ui/button"
 
 function Login() {
   const [message, setMessage] = useState(null);
@@ -34,7 +35,7 @@ function Login() {
               username and password.
             </div>
           </div>
-          {message && <p>{message}</p>}
+          {message && <p className="my-2 text-red-600">{message}</p>}
           <div className="Login__panel__content__input">
             <input
               type="text"
@@ -53,12 +54,7 @@ function Login() {
             <input type="checkbox" />
             <label>Keep me signed in</label>
           </div>
-          <button
-            className="Login__panel__button"
-            onClick={() => attemptLogin()}
-          >
-            Sign In
-          </button>
+          <Button onClick={attemptLogin} className="text-[0.9rem] bg-[#2672ec] hover:bg-[#6ca1f6] active:bg-black  text-white">Sign In</Button>
         </div>
       </div>
     </Layout>
