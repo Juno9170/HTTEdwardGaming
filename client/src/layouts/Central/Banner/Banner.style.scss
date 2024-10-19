@@ -1,12 +1,10 @@
 @import "../../../globals.scss";
 
 .Banner {
-  padding: 0.75rem;
   width: 100%;
   display: flex;
   align-items: center;
-  height: 3rem;
-  background-color: $theme;
+  
   gap: 2rem;
 
   img {
@@ -14,9 +12,9 @@
   }
 
   &__seperator {
-    height: 100%;
-    opacity: 0.3;
+    height: 5.25rem;
     background-color: white;
+    opacity: 0.5;
     width: 0.13rem;
   }
 
